@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>WebComponentDemo</title>
+  <base href="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="adder.js"></script>
+</head>
+<body>
+
+  <input id=number1Box name="number1Box" type="text" placeholder="0">
+  <input id=number2Box name="number2Box" type="text" placeholder="0">
+
+  <app-adder id="test"></app-adder>
+
+  <button onclick="getTextBoxValue();">ADD<button>
+  
+  <script>
+    function getTextBoxValue(){
+      var textboxvalue1 = document.getElementById("number1Box").value;
+      var textboxvalue2 = document.getElementById("number2Box").value;
+      document.getElementById("test").number1 = textboxvalue1;
+      document.getElementById("test").number2 = textboxvalue2;
+    }
+  </script>
+  
+  <script>
+    const cal = document.querySelector('app-adder');
+    cal.addEventListener('summationevent',(event) =>{
+      console.log(`"summationevent" emitted: ${event.detail}`);
+    });
+  </script>
+</body>
+</html>
